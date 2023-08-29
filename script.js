@@ -1,4 +1,12 @@
 let mouseState = false;
+for (let j=0;j<16;j++) {
+    for (let i=0;i<16;i++){
+        addRow();
+    }
+}
+document.querySelectorAll('.indi').forEach(item => {
+    item.style.backgroundColor = "white";
+})
 function rowsfunc() {
     delrow();
     num = document.getElementById('num');
@@ -52,8 +60,8 @@ function rgbRandom() {
         item.addEventListener('mouseover', drawRGB);
 });
 }
+
 function proBlack() {
-    
     document.querySelectorAll('.indi').forEach(item => {
         let n = 0;
         item.addEventListener('mouseover', event => {
@@ -63,14 +71,14 @@ function proBlack() {
             blue = 255-(25*n);
             item.style.backgroundColor = `rgb(${red},${green},${blue})`;
             n+=1;
-    })
-    
+    }) 
 });
 }
 
 function clearCanv() {
     document.querySelectorAll('.indi').forEach(item => {
         item.style.backgroundColor = "white";
+        item.removeEventListener('mouseover', proBlack);
 });
 }
 
