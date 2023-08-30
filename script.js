@@ -22,7 +22,7 @@ function rowsfunc() {
         //console.log(document.querySelectorAll('.indi'));
         document.querySelectorAll('.indi').forEach(item => {
             item.addEventListener('mouseover', draw);
-      })
+        })
         const rwidth = (512/rows)+"px";
         const rheight = (512/rows)+"px";
         //console.log(item.style.width);
@@ -43,43 +43,45 @@ function draw(e) {
         selColor = document.getElementById('color-pick');
         bgcolor = selColor.value;
         e.target.style.backgroundColor = bgcolor;
-      }
+    }
 }
+
 function drawRGB(e) {
     if (mouseState) {
         let red = Math.floor(Math.random(0)*255);
         let green = Math.floor(Math.random(0)*255);
         let blue = Math.floor(Math.random(0)*255);
         e.target.style.backgroundColor = `rgb(${red},${green},${blue})`;
-      }
+    }
 }
 
 function rgbRandom() {
     document.querySelectorAll('.indi').forEach(item => {
-        
+        item.removeEventListener('mouseover', proBlack);
         item.addEventListener('mouseover', drawRGB);
-});
+    });
 }
 
 function proBlack() {
     document.querySelectorAll('.indi').forEach(item => {
         let n = 0;
-        item.addEventListener('mouseover', event => {
-            
-            red = 255-(25*n);
-            green = 255-(25*n);
-            blue = 255-(25*n);
-            item.style.backgroundColor = `rgb(${red},${green},${blue})`;
-            n+=1;
-    }) 
-});
+        item.addEventListener('mouseover', event => {   
+            if(mouseState) {
+                red = 255-(25*n);
+                green = 255-(25*n);
+                blue = 255-(25*n);
+                event.target.style.backgroundColor = `rgb(${red},${green},${blue})`;
+                n+=1;
+            }
+        }) 
+    });
 }
 
 function clearCanv() {
     document.querySelectorAll('.indi').forEach(item => {
         item.style.backgroundColor = "white";
         item.removeEventListener('mouseover', proBlack);
-});
+    });
 }
 
 function addRow() {
@@ -88,6 +90,7 @@ function addRow() {
     var cont = document.getElementById("container")
     cont.appendChild(e1);
 }
+
 function delrow() {
     let e = document.getElementById('container');
     while(e.firstChild) {
