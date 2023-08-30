@@ -8,23 +8,36 @@
     <script type="text/javascript" src="script.js" defer></script>
 </head>
 <body>
-    <div class="main">
-        <div class="effects">
-            <button id="rgb-random" onclick="rgbRandom()">
-                Random RGB
-            </button>
-            <button id="prog-black" onclick="proBlack()">
-                Blacks
-            </button>
-            <button id="clear" onclick="clearCanv()">
-                Clear
-            </button>
-            <input id="color-pick" type="color">
-            <input id="num" type="number" value="16" min="1" max="100">
-            <button id="num1" onclick="rowsfunc()">clickme</button>
+    <div class="major">
+        <div class="head">
+            Etch-a-Sketch!
         </div>
-        <div id="container">
-    
+        <div class="main">
+            
+            <div class="effects">
+                <button id="rgb-random" onclick="rgbRandom()">
+                    Random RGB
+                </button>
+                <button id="prog-black" onclick="proBlack()">
+                    Black Effect
+                </button>
+                <button id="clear" onclick="clearCanv()">
+                    Clear Board
+                </button>
+                <input id="color-pick" type="color">
+                <input id="num" type="number" value="16" min="1" max="100">
+                <button id="num1" onclick="rowsfunc()">Set Grid</button>
+            </div>
+            <div id="container">
+        
+            </div>
+            <div class="info">
+                Click and Drag to draw on the board. <br><br>
+                Black Effect: Move the mouse over the board multiple times to achieve effect
+            </div>
+        </div>
+        <div class="footer">
+            <h4>Made with &#128151; by s-preetham <a href="https://github.com/s-preetham">Github</a></h4>
         </div>
     </div>
 </body>
